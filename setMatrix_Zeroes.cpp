@@ -1,31 +1,26 @@
 #include<bits/stdc++.h>
 using namespace std;
 void setZeroes(vector<vector<int>>& matrix) {
+    int rows=matrix.size();
+    int cols=matrix[0].size();
         
-        int R = matrix.size();
-        int C = matrix[0].size();
-        set<int> rows ;
-        set<int> cols ;
-        for (int i = 0; i < R; i++) 
-        {
-          for (int j = 0; j < C; j++) 
-          {
-            if (matrix[i][j] == 0) 
-            {
-                rows.insert(i);
-                cols.insert(j);
-            }
+    vector<bool> rowZero(rows,false);        
+    vector<bool> colZero(rows,false);        
+
+    for(int i=0;i<rows;i++){
+        for(int j=0;j<cols;j++){
+            if(matrix[i][j]==0){
+                rowZero[i]=true;
+                colZero[j]=true;
+              }
           }
         }
-        for (int i = 0; i < R; i++) 
-        {
-          for (int j = 0; j < C; j++) 
-          {
-            if (rows.count(i) || cols.count(j)) 
-            {
-              matrix[i][j] = 0;
+    for(int i=0;i<rows;i++){
+          for(int j=0;j<cols;j++){
+              if(rowZero[i] || colZero[j]){
+                    matrix[i][j]=0;
+               }
             }
-          }
         }
 }
 int main(){

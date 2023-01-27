@@ -7,7 +7,7 @@ int firstOccurence(vector<int> &nums, int start, int end, int target)
 
           }
           else if(start==end){
-             return (nums[start] == target !start:-1); 
+             return (nums[start] == target ?start:-1); 
           }
           else{
             int mid=start+(end-start)/2;
@@ -28,7 +28,7 @@ int firstOccurence(vector<int> &nums, int start, int end, int target)
             }
           }
 }
-int lastOccurence(vector<int< &nums, int start,int end,int target)
+int lastOccurence(vector<int> &nums, int start,int end,int target)
 {
         if(start>end){
             return -1;
@@ -60,5 +60,8 @@ vector<int> firstAndLastOccurence(vector<int> &nums,int target)
 {
     int first = firstOccurence(nums,0,nums.size()-1, target);
     int last = lastOccurence(nums,0,nums.size()-1,target);
-    return (first,last);
+    return {first,last};
+}
+int main(){
+     
 }
